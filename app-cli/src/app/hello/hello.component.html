@@ -1,0 +1,11 @@
+<div id="body">
+    <h1>{{title}}</h1>
+    <p [ngStyle]="nowStyle">ngStyle:{{message}}</p>
+    <input type="text" #in1 
+      (change)="check(in1.value,in2.value, in3.value);"><br>
+    <input type="text" #in2 
+      (change)="check(in1.value, in2.value, in3.value);"><br>
+    <input type="text" #in3 
+      (change)="check(in1.value, in2.value, in3.value);"><br>
+</div>
+  
