@@ -1,24 +1,33 @@
 #body {
-    margin-top:75px;
-  }
-  h1 {
-    font-size:60pt;
-    letter-spacing: -5px;
-    color:lightblue;
-    position: absolute;
-    top:-70px;
-    right:0px;
-  }
-  p {
-    font-size:18pt;
-  }
-  
-  .red {
-    color:white;
-    background-color: red;
-  }
+  margin-top: 75px;
+}
 
-.thin { color: #999; }
-.large { font-size:30pt; }
-.frame { border:solid 2px red; }
+h1 {
+  font-size: 60pt;
+  letter-spacing: -5px;
+  color: lightblue;
+  position: absolute;
+  top: -70px;
+  right: 0px;
+}
 
+p {
+  font-size: 18pt;
+}
+
+.red {
+  color: white;
+  background-color: red;
+}
+
+.thin {
+  color: #999;
+}
+
+.large {
+  font-size: 30pt;
+}
+
+.frame {
+  border: solid 2px red;
+}
