@@ -9,31 +9,33 @@ import { MystyleDirective } from './mystyle.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponent } from './material/material.component';
 import { MycheckService } from './mycheck.Service';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'hello', component: HelloComponent },
+  { path: 'msg/:id', component: MessageComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     MessageComponent,
-    MystyleDirective,
-    MaterialComponent
+    MystyleDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: true } // デバッグ用
+    )
   ],
-  providers: [],
-  bootstrap: [HelloComponent]
+  bootstrap: [AppComponent],
 })
-
 export class AppModule {
 
-  constructor(private service: MycheckService) {
-    service.push("Taro");
-    service.push("Hanako");
-    service.push("Sachiko");
+  constructor() { }
 
-  }
 }
