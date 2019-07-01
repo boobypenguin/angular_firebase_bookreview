@@ -1,1 +1,14 @@
-<p>material works!</p>
+<div class="container">
+    <h1>material works!</h1>
+    <div>
+        <h2>material-button.</h2>
+        <mat-button-toggle-group #tgl="matButtonToggleGroup" (change)="change(tgl.value)">
+            <mat-button-toggle value="one">One</mat-button-toggle>
+            <mat-button-toggle value="two">Two</mat-button-toggle>
+            <mat-button-toggle value="three">Three</mat-button-toggle>
+            <mat-button-toggle value="four">Four</mat-button-toggle>
+            <mat-button-toggle value="five">Five</mat-button-toggle>
+        </mat-button-toggle-group>
+        <p class="message">{{message}}</p>
+    </div>
+</div>
