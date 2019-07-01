@@ -1,14 +1,17 @@
 <div class="container">
     <h1>material works!</h1>
     <div>
-        <h2>material-button.</h2>
-        <mat-button-toggle-group #tgl="matButtonToggleGroup" (change)="change(tgl.value)">
-            <mat-button-toggle value="one">One</mat-button-toggle>
-            <mat-button-toggle value="two">Two</mat-button-toggle>
-            <mat-button-toggle value="three">Three</mat-button-toggle>
-            <mat-button-toggle value="four">Four</mat-button-toggle>
-            <mat-button-toggle value="five">Five</mat-button-toggle>
-        </mat-button-toggle-group>
+        <h2>material-form.</h2>
+        <form [formGroup]="myControl" style="width:200px;">
+            <div>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="pick a date." formControlName="picker1">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <button mat-raised-button (click)="click()">click</button>
+        </form>
         <p class="message">{{message}}</p>
     </div>
 </div>
