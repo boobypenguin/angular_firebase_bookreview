@@ -1,11 +1,6 @@
 <div id="body">
   <h1>{{title}}</h1>
-  <div>add item...</div>
-  <div>
-    <input type="text" [(ngModel)]="input1">
-    <button (click)="push()">push</button>
-    <button (click)="pop()">pop</button>
-  </div>
-  <hr>
-  <app-message [content]="message" (action)="doClick($event)"></app-message>
+  <p>This is No-style Directive!</p>
+  <p appMystyle>This is My-style Directive!</p>
+  <p appMystyle c="white" bg="red">This is My-style Directive!</p>
 </div>
