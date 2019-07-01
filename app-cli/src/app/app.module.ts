@@ -6,7 +6,7 @@ import { HelloComponent } from './hello/hello.component';
 import { MessageComponent } from './message/message.component';
 import { MystyleDirective } from './mystyle.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialComponent } from './material/material.component';
+import { MaterialComponent, MysheetComponent } from './material/material.component';
 import { MycheckService } from './mycheck.Service';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +19,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 const routes: Routes = [
   { path: 'material', component: MaterialComponent },
@@ -50,9 +58,20 @@ const routes: Routes = [
     MatSelectModule,
     MatSliderModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatListModule,
+    MatSortModule,
+    MatTabsModule,
+    MatBottomSheetModule
   ],
   bootstrap: [AppComponent],
+  entryComponents: [
+    MysheetComponent,
+  ],
 })
 export class AppModule {
 
