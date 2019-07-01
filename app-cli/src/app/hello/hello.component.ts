@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MessageComponent } from '../message/message.component';
 
 @Component({
   selector: 'app-hello',
@@ -11,12 +12,28 @@ export class HelloComponent implements OnInit {
   message: string[];
   lastTarget: any;
   lastColor: string;
+  input1: string;
+  //@ViewChild(MessageComponent)
+  private msgComponent: MessageComponent;
 
   constructor() { }
 
   ngOnInit() {
     this.title = 'Hello-app';
     this.message = ['First item.', 'Second item.', 'Third item.'];
+    this.input1 = '';
+  }
+
+  push() {
+    if (this.input1 == '') {
+      alert('テキストを入力して下さい。');
+      return;
+    }
+    this.msgComponent.push(this.input1);
+    this.input1 = '';
+  }
+  pop() {
+    this.msgComponent.pop();
   }
 
   doClick(event) {
