@@ -1,26 +1,21 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MycheckService } from '../mycheck.Service';
 
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
-  styleUrls: ['./message.component.css']
+  styleUrls: ['./message.component.css'],
+  providers: [MycheckService],
 })
 
 export class MessageComponent implements OnInit {
-  @Input() content: string[];
-  @Output() action = new EventEmitter<MouseEvent>();
+  content: string[];
 
-  constructor() { }
-
-  ngOnInit() { }
-
-  doAction(event) {
-    this.action.emit(event);
+  constructor(private service: MycheckService) {
+    service.push('message data');
   }
-  push(item: string) {
-    this.content.push(item);
-  }
-  pop() {
-    this.content.pop();
+
+  ngOnInit() {
+    this.content = this.service.list;
   }
 }
