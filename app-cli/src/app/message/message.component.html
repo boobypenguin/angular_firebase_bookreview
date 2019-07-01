@@ -1,5 +1,23 @@
+<div style="margin:10px;">
+    <p>{{message}}</p>
+    <div><label>
+            <input #check type="checkbox" (change)="updateData(check.checked)" checked>show all data.
+        </label></div>
+    <input type="text" [formControl]="input">
+    <button #btn>click</button>
+</div>
 <div class="container">
-    <ul>
-        <li class="message" (click)="doAction($event)" *ngFor="let item of content">{{item}}</li>
-    </ul>
+    <p class="message">{{getData()}}</p>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>mail</th>
+            <th>tel</th>
+        </tr>
+        <tr *ngFor="let item of getList()">
+            <td>{{item.name}}</td>
+            <td>{{item.mail}}</td>
+            <td>{{item.tel}}</td>
+        </tr>
+    </table>
 </div>

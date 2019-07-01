@@ -1,32 +1,62 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { from } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
+
+class MyData {
+  data: string = '';
+  list: Person[] = [];
+}
+class Person {
+  name: string;
+  mail: string;
+  tel: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class MycheckService {
-  private data: string[];
+  private mydata;
 
-  constructor() {
-    this.data = [];
+  constructor(private client: HttpClient) {
+    this.updateData(true);
+    this.mydata = new MyData();
   }
 
-  push(item: string) {
-    this.data.push(item);
+  updateData(f: boolean) {
+    this.client.get('/assets/data.json')
+      .pipe(
+        map((res: Response) => {
+          return f ? res : null;
+        })
+      )
+      .subscribe((result) => {
+        if (result != null) {
+          this.mydata = result;
+        } else {
+          this.mydata = new MyData();
+        }
+      });
   }
-  pop() {
-    this.data.pop();
-  }
+
   get(n: number) {
-    return this.data[n];
+    return this.mydata.list[n];
   }
+
   get size() {
-    return this.data.length;
+    return this.list.length;
   }
-  get json() {
-    return JSON.stringify(this.data);
-  }
+
   get list() {
-    return JSON.parse(JSON.stringify(this.data));
+    return this.mydata.list
+      .filter((v, k) => {
+        return k % 2 == 0 ? true : false;
+      });
+  }
+
+  get data() {
+    return this.mydata.data;
   }
 }
