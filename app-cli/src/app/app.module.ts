@@ -6,10 +6,10 @@ import { HelloComponent } from './hello/hello.component';
 import { MessageComponent } from './message/message.component';
 import { MystyleDirective } from './mystyle.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialComponent, MysheetComponent } from './material/material.component';
-import { MycheckService } from './mycheck.Service';
+import { MaterialComponent } from './material/material.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+
 import { MatButtonModule, MatNativeDateModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -26,7 +26,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 const routes: Routes = [
   { path: 'material', component: MaterialComponent },
@@ -65,13 +64,9 @@ const routes: Routes = [
     MatExpansionModule,
     MatListModule,
     MatSortModule,
-    MatTabsModule,
-    MatBottomSheetModule
+    MatTabsModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [
-    MysheetComponent,
-  ],
 })
 export class AppModule {
 

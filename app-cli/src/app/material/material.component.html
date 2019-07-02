@@ -1,9 +1,22 @@
 <div class="container">
     <h1>material works!</h1>
     <div>
-        <p>{{message}}</p>
-        <div>
-            <button mat-raised-button (click)="showSheet()">Click</button>
-        </div>
+        <p>navigation list</p>
+        <mat-card>
+            <mat-tab-group>
+                <mat-tab label="First">
+                    <h2>First tab</h2>
+                    <p>これは、最初のタブのコンテンツです。</p>
+                </mat-tab>
+                <mat-tab label="Second">
+                    <h2>Second tab</h2>
+                    <p>これは、真ん中のタブのコンテンツです。</p>
+                </mat-tab>
+                <mat-tab label="Third">
+                    <h2>Third tab</h2>
+                    <p>これは、最後のタブのコンテンツです。</p>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card>
     </div>
 </div>
