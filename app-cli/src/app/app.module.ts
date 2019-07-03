@@ -27,7 +27,23 @@ import { MatListModule } from '@angular/material/list';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FireComponent } from './fire/fire.component';
+
+var config = {
+  apiKey: "AIzaSyC-5QuzovDqD6iS8-Yqyl3bu2gShVzy0cg",
+  authDomain: "boobypenguin-angular-app.firebaseapp.com",
+  databaseURL: "https://boobypenguin-angular-app.firebaseio.com",
+  projectId: "boobypenguin-angular-app",
+  storageBucket: "boobypenguin-angular-app.appspot.com",
+  messagingSenderId: "175259266858",
+  appId: "1:175259266858:web:853814482f10f1d1"
+}
+
 const routes: Routes = [
+  { path: 'fire', component: FireComponent },
   { path: 'material', component: MaterialComponent },
   { path: 'hello', component: HelloComponent },
   { path: 'msg', component: MessageComponent },
@@ -39,7 +55,8 @@ const routes: Routes = [
     HelloComponent,
     MessageComponent,
     MystyleDirective,
-    MaterialComponent
+    MaterialComponent,
+    FireComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +81,10 @@ const routes: Routes = [
     MatExpansionModule,
     MatListModule,
     MatSortModule,
-    MatTabsModule
+    MatTabsModule,
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   bootstrap: [AppComponent],
 })
