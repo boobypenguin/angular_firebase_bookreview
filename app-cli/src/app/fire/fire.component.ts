@@ -13,6 +13,9 @@ import { auth } from 'firebase/app';
 export class FireComponent implements OnInit {
   message: string = 'people data.';
   data: any;
+  name: string;
+  mail: string;
+  age: number;
 
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) { }
 
@@ -45,6 +48,13 @@ export class FireComponent implements OnInit {
     this.access();
   }
 
+  add() {
+    const data = { name: this.name, mail: this.mail, age: this.age };
+    this.db.collection('people').add(data);
+    this.name = '';
+    this.mail = '';
+    this.age = 0;
+  }
 
   get currentUser() {
     return this.afAuth.auth != null ?
@@ -53,4 +63,18 @@ export class FireComponent implements OnInit {
         '(not logined.)' :
       '(not logined.)';
   }
+
+  find(val) {
+    this.db.collection('people',
+      ref => ref.where('name', '==', val))
+      .valueChanges()
+      .subscribe(value => {
+        this.data = value;
+      },
+        error => {
+          this.message = "(can't get data...)";
+          this.data = null;
+        });
+  }
+
 }

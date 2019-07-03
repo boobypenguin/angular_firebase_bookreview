@@ -5,6 +5,24 @@
         <button mat-raised-button (click)="login()">login</button>
         <button mat-raised-button (click)="logout()">logout</button>
         <p>USER: {{currentUser}}</p>
+        <div>
+            <mat-form-field style="margin-right:10px;">
+                <input matInput [(ngModel)]="name" placeholder="name">
+            </mat-form-field>
+            <mat-form-field style="margin-right:10px;">
+                <input matInput [(ngModel)]="mail" placeholder="mail">
+            </mat-form-field>
+            <mat-form-field style="margin-right:10px;">
+                <input type="number" matInput [(ngModel)]="age" placeholder="age">
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-stroked-button (click)="add()">Add</button>
+        </div>
+        <mat-form-field style="margin-right:10px;">
+            <input matInput #input>
+        </mat-form-field>
+        <button mat-stroked-button (click)="find(input.value)">Get</button>
         <table>
             <tr>
                 <th>Name</th>
