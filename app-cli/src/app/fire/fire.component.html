@@ -1,6 +1,21 @@
 <div class="container">
-    <h1>Firebase works!</h1>
+    <h1>material works!</h1>
     <div>
         <p>{{message}}</p>
+        <button mat-raised-button (click)="login()">login</button>
+        <button mat-raised-button (click)="logout()">logout</button>
+        <p>USER: {{currentUser}}</p>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Mail</th>
+                <th>Age</th>
+            </tr>
+            <tr *ngFor="let item of data">
+                <td>{{ item['name'] }}</td>
+                <td>{{ item['mail'] }}</td>
+                <td>{{ item['age'] }}</td>
+            </tr>
+        </table>
     </div>
 </div>
